@@ -1,0 +1,22 @@
+h1{
+    color: aquamarine;
+}
+h3{
+    color: brown;
+}
+button{
+    color:red ;
+    background-color: burlywood;
+    border-radius: 8px;
+}
+h4{
+    text-align: center;
+    color: red;
+    /* border: solid; */
+    /* width: 100%; */
+    font-weight: bolder;
+}
+p{
+    text-align: left;
+    font-weight: 400;
+}
