@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: Arial, sans-serif !important;
+    background-color:aliceblue!important;
+    padding: 20px !important; 
+}
+
+/* Logo Section */
+.logo-section{
+    width: 100% !important;
+    height: 60px !important;
+}
+
+.logo-section img{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Navbar */
+.navbar{
+    background-color: #2B3856 !important;
+    text-align: center !important;
+}
+
+.navbar-nav .nav-item a{
+    color: white !important;
+    margin-left: 1.5rem !important;
+}
