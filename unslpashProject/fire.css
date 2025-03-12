@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    text-align: center;
+}
+
+/* Fire Container */
+.fire {
+    height: 400px; /* Increased Fire Container Height */
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 15px black;
+    margin-top: 2rem;
+    padding: 0.5rem;
+}
+
+/* Fire Emoji Styling */
+.red {
+    font-weight: 900; /* Bolder Fire */
+    font-size: 20rem; /* Increased Fire Size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: flicker 0.2s infinite alternate ease-in-out;
+    text-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 
+                 0 0 40px rgba(255, 69, 0, 0.8);
+}
+
+/* Fire Flicker Animation */
+@keyframes flicker {
+    0% { transform: scale(1); opacity: 1; filter: hue-rotate(0deg); }
+    100% { transform: scale(1.1); opacity: 0.9; filter: hue-rotate(15deg); }
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 2.5rem; /* Slightly Larger Heading */
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff007f, #ff4c00, #ffcc00, #00ffcc, #0000ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background 0.5s ease-in-out;
+    margin-bottom: 1rem; /* Added Spacing */
+}
+
+/* Hover Effect */
+h1:hover {
+    background: linear-gradient(135deg, #ffcc00, #ff4c00, #ff007f, #0000ff, #00ffcc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

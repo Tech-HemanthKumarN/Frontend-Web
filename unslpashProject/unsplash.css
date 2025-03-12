@@ -1,0 +1,124 @@
+body{
+    margin: 0;
+    /* font-family: 14px ui-sans-serif; */
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: border-box;
+}
+.navbar{
+    height: 62px;
+    width: 1014px;;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nav-logo{
+    padding: 8px 12px;
+}
+.logo{
+    background-image: url(unsplash_logo.png);
+    background-size: cover;
+    height: 42px;
+    width: 40px;
+}
+.nav-searchbar{
+    height:40px;
+    width: 560px;
+    display:flex;
+}
+.search-icon{
+    height:42px;
+    width: 40px;
+    /* padding: 3px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(244, 244, 244);
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+.search{
+    height:40px;
+    width: 560px;
+    border: none;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    border-left: none;
+    background-color: rgb(244, 244, 244);
+    font-size: 1rem;
+    outline: none;
+}
+ .select{
+    height:40px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+.select span a{
+    text-decoration: none;
+    color: #767676;
+}
+.explore{
+    margin-left:1rem ;
+}
+.line{
+    height: 2rem;
+    width: 1px;
+    margin-left: 3rem;
+}
+.stick{
+    height: 2rem;
+    width: 1px;
+    background-color: #D1D1D1;
+    color: #767676;
+}
+.login{
+    height:2rem;
+    width: 4rem;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+}
+.log{
+    height:2rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:1rem;
+    margin-right:1rem;
+}
+.log a{
+    text-decoration: none;
+    color: black;
+    opacity: 0.6;
+    font-weight: 700;
+}
+.log a:hover{
+    opacity: 1;
+} 
+.login-form{
+    background-color: rgb(244, 244, 244);
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #D1D1D1;
+    border-radius: 0.5rem;
+    width: 130px;
+}
+
+.sidebar-menu{
+    height:54px;
+    width: 46px;
+    margin-left: 10rem;
+}
+.bar-icon{
+    height:54px;
+    width: 46px;
+    display:flex;
+    justify-self: center;
+    align-items: center;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
