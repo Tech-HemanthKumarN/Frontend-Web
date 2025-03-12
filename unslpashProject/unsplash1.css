@@ -233,3 +233,51 @@ hr{
 .hero-input-search1:hover{
     font-size:1.1rem;
 }
+@keyframes fireGlow {
+    0% { text-shadow: 0 0 5px #ff4500, 0 0 10px #ff6347, 0 0 20px #ff0000; }
+    50% { text-shadow: 0 0 10px #ff6347, 0 0 20px #ff4500, 0 0 30px #ff0000; }
+    100% { text-shadow: 0 0 5px #ff4500, 0 0 10px #ff6347, 0 0 20px #ff0000; }
+}
+.box1 a[href*="fire"] {
+    animation: fireGlow 1.5s infinite alternate;
+}
+.list span a {
+    transition: all 0.3s ease-in-out;
+}
+
+.list span a:hover {
+    color: #ff4c00;
+    text-shadow: 0px 0px 10px rgba(255, 76, 0, 0.7);
+}
+.pic1 {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.pic1:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+}
+@keyframes pulse {
+    0% { box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.2); }
+    50% { box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.5); }
+    100% { box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.2); }
+}
+
+.hero-search {
+    animation: pulse 2s infinite alternate;
+}
+.navbar {
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.navbar:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+h1 {
+    transition: all 0.5s ease-in-out;
+}
+
+h1:hover {
+    background: linear-gradient(135deg, #ff007f, #ff4c00, #ffcc00, #00ffcc, #0000ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
