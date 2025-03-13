@@ -14,7 +14,7 @@ body {
 /* Fire Container */
 .fire {
     height: 400px; /* Increased Fire Container Height */
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
