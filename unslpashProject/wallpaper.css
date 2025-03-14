@@ -78,3 +78,21 @@ h1 {
     0% { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
 }
+/* Snowflake styling */
+.snowflake {
+    position: fixed;
+    top: -10px; /* Start slightly above the screen _______________________________________*/
+    color: white; /* Snowflake color ___________________________________________*/
+    font-size: 12px; /* Random sizes will be applied_________________________ */
+    user-select: none;
+    pointer-events: none;
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+
+/* Falling Animation................. */
+@keyframes fall {
+    to {
+        transform: translateY(100vh); /* Move to the bottom .....................*/
+    }
+}
