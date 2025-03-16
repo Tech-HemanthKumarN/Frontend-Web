@@ -7,9 +7,9 @@ body{
   overflow: hidden; 
   /* overflow:hidden;-->means if the content is longer then a page we can't scroll it,it will be hidden  */
   /* and we use this because to scroll an necessary content */
-  /* means as u know a middle of the part in spotify so that's why we use this one */
+  /* means as u know a middle of the part in spotify contain large page ,so that's why we use this one */
   /* there are diff types of overflows are there they are 'overflow:visible;hidden;'clip;auto;scroll */
-  /* for more information  about overflow  please check in 'mdn overflow'. only if u have a confusion ok naa  */
+  /* for more information  about overflow  please check in 'mdn overflow' only if u have a confusion */
 }
 .main{
   display: flex;  /* display flex works in row manner */
@@ -20,7 +20,7 @@ body{
 .sidebar{
   background-color:#000;
   width: 340px;
-  border-radius: 1rem; /* 1rem--> we add this becz, we want curve at edges */
+  border-radius: 1rem; /* 1rem--> we add this becz we curve at edges */
   /* 1rem-->16px */
   /* when screen size is going to small in the same way edges will going to small */
   /* and here we  use this to devied or make border between the (red)siedbar and(blue) main-content page  */
@@ -35,7 +35,7 @@ body{
   border-radius: 1rem;
   overflow: auto;
   /* see as u know before we make the  overflow is hidden because we don't want to scroll entier document ok but */
-  /* here we want to scroll the main-content page only so that's why here we use the "overflow:auto;" so know we can scroll */
+  /* here we want to scroll the main-content page only so that's why here we use the "overflow:auto;" so now we can scroll */
   padding: 0 1.5rem 0 1.5rem;
 }
 .music-player{
@@ -55,7 +55,7 @@ a{
   border-radius: 1rem;
   display: flex; /*  display:flex;--->allocate the content in row from left to right */
   /* The CSS property display: flex creates a flexible layout by turning an element into a flex container */
-  flex-direction: column; /* here using display flex with flex direction is goodway not only here everywhere */
+  flex-direction: column; /* here using display flex with flex direction is good way not only here everywhere */
   justify-content: center; /* we use this to allocate the content verticaly at center  */
   /* justify-content is usally for horizontal but here we use ''flex-dirction:column;'' */
   height: 100px;
@@ -139,7 +139,8 @@ align-items: center;
   color: #fff;
 }
 .sticky-nav{
-  position: sticky; /* sticky-->means the entier document sticky-nav will sticky to the screen */
+  position: sticky;
+   /* sticky-->means the entier document sticky-nav will sticky to the screen */
   top: 0; /*top: 0; If the element is in position absolute, the element will position itself from the top of the first positioned ancestor */
   background-color: #121212;
   display: flex;
@@ -161,8 +162,8 @@ margin-left: 0.75rem;
 .nav-item{/* Here we use the '.nav-item' rather then sticky-nav-option beuz to apply the same properties for inner level of that divs */
    margin-right: 1rem;
 }
-@media (max-width:1000px){ /* when screen size chota hogaya forward icon and explor premium badge gayab hogaya..it happens when,when we goto  insepect, to make the screen size small then you will know*/
-   /*important one ,this one use, this everwhere  */
+@media (max-width:1000px){ /* when screen size chota hogaya forward icon and explor premium badge gayab hogaya..it happens when,when we go insepect to make the screen size small then you will know*/
+   /*important one this one use this everwhere  */
   .hide{
     display: none;
   }
@@ -213,6 +214,7 @@ margin-left: 0.75rem;
 }
 .album{
   width: 25%; 
+  display: flex;
  
 }
 .player{
@@ -260,8 +262,33 @@ margin-left: 0.75rem;
   background-color: #1bd760;
   border-radius: 50%;
   margin-top: -6px;
-
 }
+.album img{
+  height: 3rem;
+  width: 3rem;
+  padding-left: 0.75rem;
+}
+p1{
+  font-weight: 700;
+  padding-left: 0.75rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+.album-icons img{
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 1rem 0 0 0.3rem;
+}
+.controls-icons{
+  height: 1.6rem;
+  width: 1.5rem;
+}
+.controls-iocns img{
+  height: 1.7rem;
+  width: 1.7rem;
+  padding-left: 0.75rem;
+}
+
 
 
 
