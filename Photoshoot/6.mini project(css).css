@@ -91,7 +91,7 @@
     transform: scale(1) rotate(3deg);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgb(247, 227, 10);
+    border: 1.3px solid rgb(247, 227, 10);
     border-radius: 1rem;
 }
 .sidebar_menu .menu i ,a {
