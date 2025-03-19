@@ -4,13 +4,16 @@
     font-family: "Poppins", sans-serif;
     /* font-weight: 400;
     font-style: normal; */
+    box-sizing: border-box;
 }
-.main_box{
-    background-image: url(photo\'s.jpg);
-    height: 100vh;  /* vh means (view port height),we use this to cover entier screen width */
+.main_box {
+    background-image: url(photo.jpg);
+    height: 100vh;/* vh means (view port height),we use this to cover entier screen width */
     background-size: cover;
+    background-position: center;
 }
-.btn_one i{
+/* Hamburger Menu Button */
+.btn_one i {
     color: white;
     font-size: 30px;
     font-weight: 700;
@@ -18,17 +21,34 @@
     left: 16px;
     line-height: 60px;
     cursor: pointer;
-    transition: all 0.3s linear;
-
+    transition: transform 0.3s ease;
+    animation: pulse 2s infinite;
 }
-.sidebar_menu{
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.btn_one i:hover {
+    transform: rotate(90deg) scale(1.2);
+    color: rgb(252, 254, 254);
+}
+.sidebar_menu {
     position: fixed;
     left: -300px;
     height: 100vh;
     width: 300px;
-    background-color: rgb(255, 255, 255, 0.1);
-    box-shadow: 0 0 6px rgb(255, 255, 255 ,0.5);
-    transition: all 0.3s linear;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    transition: all 0.5s ease-in-out;
+    /* animation: fadeIn 1s ease-in-out; */
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 .sidebar_menu .logo{
     position: absolute;
@@ -53,23 +73,31 @@
     left: 275px;
     opacity: 0;
     cursor: pointer;
-    transition: all 0.3s linear;
+    /* transition: all 0.3s linear; */
 
 }
+
 .sidebar_menu .menu{
     position: absolute;
     width: 100%;
     top: 80px;
 }
-.sidebar_menu .menu li{
+.sidebar_menu .menu li {
     margin-top: 10px;
     padding: 14px 20px;
+    transition: transform 0.5s ease, box-shadow 0.9s ease;
+}
+.sidebar_menu .menu li:hover {
+    transform: scale(1) rotate(3deg);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgb(247, 227, 10);
+    border-radius: 1rem;
 }
 .sidebar_menu .menu i ,a {
     color: white;
     text-decoration: none;
 }
-
 .sidebar_menu .menu i{
     padding-right: 8px;
 }
@@ -91,9 +119,9 @@
 .sidebar_menu .menu li:hover{
     box-shadow: 0 0 3px rgb(255, 255, 255 ,0.5);
 }
-.btn_one i:hover{
+/* .btn_one i:hover{
     font-size: 40px;
-}
+} */
 .btn_two i:hover{
     font-size: 30px;
     cursor: pointer;
