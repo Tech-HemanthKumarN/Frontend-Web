@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+h1{
+    background: linear-gradient(135deg, #ff007f, #ff4c00, #ffcc00, #00ffcc, #0000ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.btn{
+    height: 50px;
+    border-radius: 1rem;
+    border: none;
+}
+.col{
+    background-color: rgb(174, 134, 81);
+}
+.ul{
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+.delete{
+    margin: 10px;
+    border-radius: 1rem;
+    border: none;
+    background-color: antiquewhite;
+}
