@@ -29,6 +29,9 @@ h1{
     align-items: center;
     background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
 }
+.ul:hover{
+    box-shadow: 2px 2px 10px  black;
+}
 .delete{
     margin: 10px;
     border-radius: 1rem;
