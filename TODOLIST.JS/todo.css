@@ -24,9 +24,10 @@ h1{
 }
 .ul{
     font-weight: 700;
-    display: flex;
+    display: inline-block;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
     background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
 }
 .ul:hover{
