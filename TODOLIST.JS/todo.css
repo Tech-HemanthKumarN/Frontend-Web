@@ -2,7 +2,12 @@ body{
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+
+        background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+    
+
 }
 h1{
     background: linear-gradient(135deg, #ff007f, #ff4c00, #ffcc00, #00ffcc, #0000ff);
@@ -22,7 +27,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+    background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
 }
 .delete{
     margin: 10px;
