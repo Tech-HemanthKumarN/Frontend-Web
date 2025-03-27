@@ -2,10 +2,9 @@ body{
     text-align: center;
     justify-content: center;
     align-items: center;
-
-        background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
-        min-height: 100vh;
-        font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
     
 
 }
