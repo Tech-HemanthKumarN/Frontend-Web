@@ -114,36 +114,63 @@ nav button {
 }
 
 .features {
-    background-color: #333;
-    padding: 60px 10%;
+    background-color: #111;
+    padding: 100px 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
     text-align: center;
 }
 
-.features .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 50px;
+.features .feature-card {
+    background-color: #222;
+    border-radius: 12px;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.features .text-col {
-    flex: 1;
+.features .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.features .text-col h2 {
+.features .feature-card .icon {
+    font-size: 50px;
+    color: #db0001;
+    margin-bottom: 20px;
+}
+
+.features .feature-card h2 {
     font-size: 24px;
     font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.features .feature-card p {
+    font-size: 16px;
+    color: #bbb;
     line-height: 1.5;
 }
 
-.features .img-col {
-    flex: 1;
+.features .feature-card:hover h2 {
+    color: #db0001;
 }
 
-.features .img-col img {
+.features .feature-card img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
 }
+
+.features .feature-card:hover img {
+    transform: scale(1.1);
+}
+
 
 .footer {
     text-align: center;
