@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Image Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-300 font-sans">
+
+    <div class="container mx-auto p-6">
+        <div class="flex items-center justify-center mb-12 animate__animated animate__fadeInDown">
+            <i class="fas fa-camera text-6xl text-purple-400 mr-4 drop-shadow-lg"></i>
+            <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 shadow-md">
+                AI-DOCTOR ANALYZE IMAGE APPLICATION
+            </h1>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            
+            <!-- Upload Image Card -->
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/20 transform transition-all hover:scale-105 hover:shadow-[0_0_25px_5px_rgba(255,69,0,0.8)]">
+                <h2 class="text-xl font-semibold text-purple-400 mb-4">📤 Upload Image</h2>
+                
+                <button id="upload-btn" class="w-full py-3 bg-purple-500 hover:bg-purple-600 hover:shadow-lg text-white font-bold rounded-md transition-all">
+                    📸 Click to Upload
+                </button>
+                
+                <input type="file" id="image-upload" accept="image/*" class="hidden" />
+                
+                <div id="image-container" class="hidden mt-4 animate__animated animate__zoomIn">
+                    <img id="display-image" src="" alt="Uploaded image" class="w-full rounded-lg shadow-lg" />
+                </div>
+            </div>
+
+            <!-- Ask Question Card -->
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/20 transform transition-all hover:scale-105 hover:shadow-[0_0_25px_5px_rgba(255,69,0,0.8)]">
+                <h2 class="text-xl font-semibold text-blue-400 mb-4">💬 Ask Question</h2>
+                
+                <textarea id="query-input" rows="4" placeholder="Enter your question about the image"
+                    class="w-full p-3 bg-gray-800 text-gray-300 rounded-lg shadow outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                
+                <button id="submit-query" class="w-full bg-blue-500 hover:bg-blue-600 hover:shadow-lg text-white font-bold py-2 px-4 rounded-lg mt-3 transition-all flex justify-center items-center gap-2">
+                    🚀 <span id="submit-text">Submit Query</span>
+                    <svg id="spinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                </button>
+
+                <!-- Voice Input -->
+                <div class="mt-6 flex items-center gap-3">
+                    <button class="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-lg flex items-center gap-2 transition-all">
+                        <i class="fas fa-microphone"></i> Start Voice Input
+                    </button>
+                    <p class="text-sm text-gray-400">Ask by speaking (coming soon...)</p>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Llama Response -->
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/20 transition hover:shadow-xl">
+                <h2 class="text-xl font-semibold text-green-400">🤖 Llama-3.2-11b-vision Response</h2>
+                <div id="response-container-llama11b" class="hidden mt-4 bg-gray-800 p-4 rounded text-gray-300 animate__animated animate__fadeInUp"></div>
+            </div>
+            
+            <!-- Llava Response -->
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/20 transition hover:shadow-xl">
+                <h2 class="text-xl font-semibold text-green-400">🤖 Llama-3.2-90b-vision Response</h2>
+                <div id="response-container-llama90b" class="hidden mt-4 bg-gray-800 p-4 rounded text-gray-300 animate__animated animate__fadeInUp"></div>
+            </div>
+
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-container" class="hidden mt-8 p-4 bg-red-500 text-white rounded">
+            <p id="error-text"></p>
+        </div>
+    </div>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const uploadBtn = document.getElementById('upload-btn');
+    const imageUpload = document.getElementById('image-upload');
+    const displayImage = document.getElementById('display-image');
+    const imageContainer = document.getElementById('image-container');
+    const queryInput = document.getElementById('query-input');
+    const submitQuery = document.getElementById('submit-query');
+    const responseLlama = document.getElementById('response-container-llama11b');
+    const responseLlava = document.getElementById('response-container-llama90b');
+    const errorContainer = document.getElementById('error-container');
+    const errorText = document.getElementById('error-text');
+    const spinner = document.getElementById('spinner');
+    const submitText = document.getElementById('submit-text');
+    const voiceInputBtn = document.querySelector('.bg-pink-500');  // Start Voice Input button
+         
+    uploadBtn.addEventListener('click', () => {
+        imageUpload.click();
+    });
+         
+    imageUpload.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                displayImage.src = e.target.result;
+                imageContainer.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+         
+    submitQuery.addEventListener('click', async () => {
+        const image = imageUpload.files[0];
+        const query = queryInput.value;
+             
+        if (!image || !query) {
+            showError('⚠️ Please upload an image and enter a query.');
+            return;
+        }
+             
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('query', query);
+             
+        try {
+            submitQuery.disabled = true;
+            spinner.classList.remove('hidden');
+            submitText.textContent = "Processing...";
+                 
+            const response = await fetch('/upload_and_query', {
+                method: 'POST',
+                body: formData
+            });
+                 
+            const result = await response.json();
+                 
+            if (!response.ok) {
+                throw new Error(result.detail || 'An error occurred while processing your request.');
+            }
+                 
+            responseLlama.innerHTML = marked.parse(result.llama);
+            responseLlama.classList.remove('hidden');
+            responseLlava.innerHTML = marked.parse(result.llava);
+            responseLlava.classList.remove('hidden');
+            errorContainer.classList.add('hidden');
+        } catch (error) {
+            console.error('Error:', error);
+            showError(error.message);
+        } finally {
+            submitQuery.disabled = false;
+            spinner.classList.add('hidden');
+            submitText.textContent = "Submit Query";
+        }
+    });
+         
+    // Improved Voice Input functionality
+    let recognition;
+    let isListening = false;
+    
+    // Function to initialize speech recognition
+    function initSpeechRecognition() {
+        if (recognition) {
+            return true; // Already initialized
+        }
+        
+        try {
+            if ('SpeechRecognition' in window) {
+                recognition = new SpeechRecognition();
+            } else if ('webkitSpeechRecognition' in window) {
+                recognition = new webkitSpeechRecognition();
+            } else {
+                return false; // Not supported
+            }
+            
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+            recognition.continuous = false;
+            
+            recognition.onstart = () => {
+                console.log("Voice recognition started. Speak now.");
+                isListening = true;
+                voiceInputBtn.innerHTML = '<i class="fas fa-microphone-slash"></i> Stop Voice Input';
+                voiceInputBtn.classList.remove('bg-pink-500', 'hover:bg-pink-600');
+                voiceInputBtn.classList.add('bg-red-500', 'hover:bg-red-600');
+                errorContainer.classList.add('hidden');
+            };
+            
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                console.log('Result received:', transcript);
+                queryInput.value = transcript;
+                stopSpeechRecognition();
+            };
+            
+            recognition.onend = () => {
+                console.log("Voice recognition ended.");
+                resetVoiceButton();
+            };
+            
+            recognition.onerror = (event) => {
+                console.error("Speech recognition error", event.error);
+                let errorMsg = "Speech recognition error. ";
+                
+                switch(event.error) {
+                    case 'not-allowed':
+                        errorMsg += "Microphone access was denied.";
+                        break;
+                    case 'no-speech':
+                        errorMsg += "No speech was detected.";
+                        break;
+                    case 'network':
+                        errorMsg += "Network error occurred.";
+                        break;
+                    case 'aborted':
+                        errorMsg += "Recognition was aborted.";
+                        break;
+                    default:
+                        errorMsg += "Please try again.";
+                }
+                
+                showError(errorMsg);
+                resetVoiceButton();
+            };
+            
+            return true;
+        } catch (error) {
+            console.error("Error initializing speech recognition:", error);
+            return false;
+        }
+    }
+    
+    function startSpeechRecognition() {
+        if (!initSpeechRecognition()) {
+            showError("Voice input is not supported in this browser.");
+            return;
+        }
+        
+        try {
+            recognition.start();
+        } catch (error) {
+            console.error("Error starting speech recognition:", error);
+            showError("Failed to start speech recognition. Please try again.");
+            resetVoiceButton();
+        }
+    }
+    
+    function stopSpeechRecognition() {
+        if (recognition && isListening) {
+            try {
+                recognition.stop();
+            } catch (error) {
+                console.error("Error stopping speech recognition:", error);
+            }
+        }
+        resetVoiceButton();
+    }
+    
+    function resetVoiceButton() {
+        isListening = false;
+        voiceInputBtn.innerHTML = '<i class="fas fa-microphone"></i> Start Voice Input';
+        voiceInputBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
+        voiceInputBtn.classList.add('bg-pink-500', 'hover:bg-pink-600');
+    }
+    
+    // Toggle speech recognition on button click
+    voiceInputBtn.addEventListener('click', () => {
+        if (isListening) {
+            stopSpeechRecognition();
+        } else {
+            startSpeechRecognition();
+        }
+    });
+         
+    function showError(message) {
+        errorText.textContent = message;
+        errorContainer.classList.remove('hidden');
+        // Only hide response containers if they're currently visible
+        if (!responseLlama.classList.contains('hidden')) {
+            responseLlama.classList.add('hidden');
+        }
+        if (!responseLlava.classList.contains('hidden')) {
+            responseLlava.classList.add('hidden');
+        }
+    }
+});
+    </script>
+    
+
+</body>
+</html>
