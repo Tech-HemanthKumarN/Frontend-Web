@@ -1,0 +1,88 @@
+/* General Styling */
+body {
+    margin: 0;
+    background-color: #0f0f0f;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+/* Nature Container */
+.nature {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 4rem;
+    box-shadow: 4px 4px 15px rgba(255, 69, 0, 0.5);
+    padding: 1rem;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Image Styling */
+.pic img {
+    height: 280px; /* Adjusted for better layout */
+    width: 200px;
+    margin: 1rem;
+    border-radius: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Image Hover Effect (Fire Glow) */
+.pic img:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.9), 
+                0 0 50px rgba(255, 140, 0, 0.9);
+}
+
+/* Title Section */
+.h1 {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Fire Animation on Title */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(270deg, #ff4500, #ff8c00, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: fireEffect 2s infinite alternate ease-in-out;
+}
+
+/* Fire Flicker Animation */
+@keyframes fireEffect {
+    0% { text-shadow: 0px 0px 10px #ff4500, 0px 0px 20px #ff8c00; }
+    100% { text-shadow: 0px 0px 20px #ff0000, 0px 0px 30px #ff4500; }
+}
+
+/* Image Flicker Effect */
+@keyframes fireFlicker {
+    0% { opacity: 1; filter: brightness(100%); }
+    50% { opacity: 0.9; filter: brightness(110%); }
+    100% { opacity: 1; filter: brightness(100%); }
+}
+
+/* Image Flicker Effect Applied */
+.pic img {
+    animation: fireFlicker 0.5s infinite alternate ease-in-out;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
