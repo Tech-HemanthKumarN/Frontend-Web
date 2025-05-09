@@ -1,0 +1,294 @@
+body{
+  font-family: "Montserrat", sans-serif;
+  /* font-optical-sizing: auto; */
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden; 
+  /* overflow:hidden;-->means if the content is longer then a page we can't scroll it,it will be hidden  */
+  /* and we use this because to scroll an necessary content */
+  /* means as u know a middle of the part in spotify contain large page ,so that's why we use this one */
+  /* there are diff types of overflows are there they are 'overflow:visible;hidden;'clip;auto;scroll */
+  /* for more information  about overflow  please check in 'mdn overflow' only if u have a confusion */
+}
+.main{
+  display: flex;  /* display flex works in row manner */
+  height: 100vh; /* 100% view port height 100% view port of screen */
+  /* so know it will give 100% height for sidebar,main-content and musicplayer */
+  padding: 0.5rem;
+}
+.sidebar{
+  background-color:#000;
+  width: 340px;
+  border-radius: 1rem; /* 1rem--> we add this becz we curve at edges */
+  /* 1rem-->16px */
+  /* when screen size is going to small in the same way edges will going to small */
+  /* and here we  use this to devied or make border between the (red)siedbar and(blue) main-content page  */
+  margin-right:0.5rem;
+}
+.main-content{
+  background-color:#121212; /* go and check in color picker, u will get diff things there  */
+  flex: 1;
+  /* flex:1; it says that i want remaining all space */
+  /* In CSS, flex: 1 is a property that distributes available space equally among flex items in a flex container */
+  /* The flex property is a unitless proportion value that dictates how much space each flex item will take up. The value must be positive, and the higher the number, the more the item will grow. For example, if one item has a value of 2, it will take up twice as much space as the others.  */
+  border-radius: 1rem;
+  overflow: auto;
+  /* see as u know before we make the  overflow is hidden because we don't want to scroll entier document ok but */
+  /* here we want to scroll the main-content page only so that's why here we use the "overflow:auto;" so now we can scroll */
+  padding: 0 1.5rem 0 1.5rem;
+}
+.music-player{
+  background-color: black;
+  position: fixed;
+  bottom: 0; /* it is completly attached to the bottom */
+  width: 100%;
+  height: 72px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.navbar{
+  background-color: #121212;  /* this gray color */
+  border-radius: 1rem;
+  display: flex; /*  display:flex;--->allocate the content in row from left to right */
+  /* The CSS property display: flex creates a flexible layout by turning an element into a flex container */
+  flex-direction: column; /* here using display flex with flex direction is good way not only here everywhere */
+  justify-content: center; /* we use this to allocate the content verticaly at center  */
+  /* justify-content is usally for horizontal but here we use ''flex-dirction:column;'' */
+  height: 100px;
+  /* padding: 0.5rem 0.75rem; ...........................*/
+  /* padding: 0.5rem 0.75rem;-->left right||top bottum */
+}
+.nav-option{
+  line-height:2.5rem;
+  opacity: 0.7; /* it will dull the color */
+  padding: 0.5rem 0.75rem;
+}
+.nav-option:hover{
+  opacity: 1;
+  /* font-weight: 700; */
+}
+.nav-option i {
+  font-size: 1.25rem;  /* this is for icon */
+}  
+.nav-option a {
+  font-size: 1rem;
+  margin-left:1rem ;
+}
+.library{
+  background-color: #121212;
+  border-radius: 1rem;
+  height: 100%;
+  margin-top:0.5rem;
+  padding: 0.5rem 0.75rem;
+}
+.options{
+display:flex;
+justify-content: space-between;
+align-items: center;
+}
+.lib-option img{
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.icons{
+  font-size: 1.25rem;
+  opacity: 0.7;
+  margin-right: 1rem; /* it will move from right */
+  display: flex;
+}
+.icons i{
+  opacity: 0.7;
+  margin-right: 1rem;
+}
+.icons i:hover{
+  opacity: 1;
+  /* color: #1b28d7;  this one is trial and error*/
+}
+.box{
+  background-color: #232323;
+  height: 8rem;
+  border-radius: 0.75rem;
+  margin: 0.75rem 0 1.75rem 0;
+  padding: 0.5rem 1rem;
+}
+.box-p1{
+  font-size: 1rem;
+  font-weight: 500;
+}
+.box-p2{
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+.badge{
+  background-color: #fff;
+  border: none;
+  /* Here why i give border:none;--->means there i use the button, so that inbuilt that have border so i don't want it, so i use none. for more clarification go and comment it and then check  */
+  border-radius: 100px;
+  padding: 0.25rem 1rem;
+  font-weight: 700;
+  margin-top:0.5rem;
+  height: 2rem;
+  width:fit-content; /* content will fit inside the width use this when ur using botton */
+}
+.dark-badge{ /* this is for main content */
+  background-color: #000;
+  color: #fff;
+}
+.sticky-nav{
+  position: sticky;
+   /* sticky-->means the entier document sticky-nav will sticky to the screen */
+  top: 0; /*top: 0; If the element is in position absolute, the element will position itself from the top of the first positioned ancestor */
+  background-color: #121212;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0 1rem 0;
+  z-index: 10;
+  /* Here why we use the z-index-->means see as u know the paragraph content get collide with sticky-nav so thats why we use z-index, think when we scroll upside the words will get collide so thats why we use this*/
+  /* know it does not get collide. for more information browses karo */
+}
+.sticky-nav-icons{
+margin-left: 0.75rem;
+}
+.sticky-nav-options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-item{/* Here we use the '.nav-item' rather then sticky-nav-option beuz to apply the same properties for inner level of that divs */
+   margin-right: 1rem;
+}
+@media (max-width:1000px){ /* when screen size chota hogaya forward icon and explor premium badge gayab hogaya..it happens when,when we go insepect to make the screen size small then you will know*/
+   /*important one this one use this everwhere  */
+  .hide{
+    display: none;
+  }
+}
+
+.cards-container{
+  display: flex;
+  flex-wrap: wrap; 
+  /* it will addjust  all the content in the container , with there spcified size itself */
+}
+.card{
+  background-color: #232323;
+  width: 150px;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card-img{
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.card-title{
+  font-size: 600;
+}
+.card-info{
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+.footer{
+  height: 300px;
+  display: flex;
+  align-items: center; /* aline-item is act in column wise */
+  justify-content: center; /* justify content act in row or horizontal wise */
+}
+.line{
+  height: 50%;
+  width: 90%;
+  border-top: 1px solid white;
+  opacity: 0.4;
+
+}
+.music-player{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.album{
+  width: 25%; 
+  display: flex;
+ 
+}
+.player{
+  width: 50%;
+  
+}
+.controls{
+  width: 25%;
+  
+}
+.player-controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.player-control-icon{
+  height: 1rem;
+  margin-right:1.75rem ;
+  opacity: 0.7;
+}
+.player-control-icon:hover{
+  opacity: 1;
+}
+.playback-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-bar{
+  width: 70%;
+  appearance: none; /* Here why we use the appearance-->becz it already have there own property  but we don't want that property that's why we use the appearence:none here */
+  background-color: transparent;
+  cursor: pointer; /* cursor:pointer;--->it show hand when we move the cursor in volune range */
+}
+/* if you want to know about below -webkit-slider-runnable-track then go through this-->'https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html' */
+.progress-bar::-webkit-slider-runnable-track{
+  background-color: #ddd;
+  border-radius: 100px;
+  height: 0.2rem;
+}
+.progress-bar::-webkit-slider-thumb{
+  appearance: none;
+  height: 1rem;
+  width: 1rem;
+  background-color: #1bd760;
+  border-radius: 50%;
+  margin-top: -6px;
+}
+.album img{
+  height: 3rem;
+  width: 3rem;
+  padding-left: 0.75rem;
+}
+p1{
+  font-weight: 700;
+  padding-left: 0.75rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+.album-icons img{
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 1rem 0 0 0.3rem;
+}
+.controls-icons{
+  height: 1.6rem;
+  width: 1.5rem;
+}
+.controls-iocns img{
+  height: 1.7rem;
+  width: 1.7rem;
+  padding-left: 0.75rem;
+}
+
+
+
+
