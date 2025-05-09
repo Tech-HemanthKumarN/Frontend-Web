@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="net.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div class="header animate__animated animate__fadeIn">
+        <nav>
+            <img src="logo.png" class="logo" alt="Netflix logo">
+            <div>
+                <button class="language-btn">English <img src="down-icon.png" alt="Language dropdown"></button>
+                <button>Sign In</button>
+            </div>
+        </nav>
+
+        <div class="header-content animate__animated animate__fadeIn animate__delay-1s">
+            <h1>Unlimited movies, TV shows and more.</h1>
+            <h3>Watch anywhere. Cancel anytime.</h3>
+            <p>Ready to watch? Enter your email to create or restart your membership.</p>
+
+            <form action="#" class="email-signup">
+                <input type="email" placeholder="Email address" required>
+                <button type="submit">Get Started</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="features">
+        <!-- Feature 1: -->
+        <div class="feature-card animate__animated animate__fadeInLeft">
+            <div class="icon">
+                <i class="fas fa-tv"></i>
+            </div>
+            <h2>Enjoy on Your TV</h2>
+            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+            <img src="feature-1.png" alt="Watch on TV">
+        </div>
+    
+        <!-- Feature 2:-->
+        <div class="feature-card animate__animated animate__fadeInRight">
+            <div class="icon">
+                <i class="fas fa-download"></i>
+            </div>
+            <h2>Download and Watch Offline</h2>
+            <p>Save your favorites to watch offline anytime, anywhere.</p>
+            <img src="feature-2.png" alt="Download and Watch Offline">
+        </div>
+    
+        <!-- Feature 3: -->
+        <div class="feature-card animate__animated animate__fadeInLeft">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h2>Stream on Multiple Devices</h2>
+            <p>Watch on your laptop, tablet, phone, or any device connected to your account.</p>
+            <img src="feature-3.png" alt="Stream on Multiple Devices">
+        </div>
+
+        <!-- Feature 4: -->
+        <div class="feature-card animate__animated animate__fadeInLeft">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h2> Attack on Titan </h2>
+            <p>The only thing we're allowed to do is to believe that we won't regret the choice we made..</p>
+            <img src="AOT.webp" alt="Stream on Multiple Devices">
+        </div>
+
+        <!-- Feature 5: -->
+        <div class="feature-card animate__animated animate__fadeInLeft">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h2> Livi Ackerman Attack on Titan 🪶🪶</h2>
+            <p>The world is merciless, and it’s also very beautiful</p>
+            <img src="livi.png" alt="Stream on Multiple Devices">
+        </div>
+
+     <!-- Feature 6: -->
+        <div class="feature-card animate__animated animate__fadeInLeft">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h2>Mikasa Ackerman  Attack on Titan</h2>
+            <p>If I’m not with you, I’m not me..</p>
+            <img src="mikasa.jpg" alt="Stream on Multiple Devices">
+        </div>
+    </div>
+
+    
+    <section class="sustainability-hero">
+        <video autoplay muted loop class="bg-video">
+            <source src="V1 user-ai-generation-2H06QcYweg-1080p.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+        <audio id="bg-music" loop>
+            <source src="A1 You're My Full Moon.mp3" type="audio/mpeg">
+        </audio>
+
+        <button onclick="toggleMusic()">🔊 Mute / Unmute</button>
+    </section>
+
+    
+    <div class="footer">
+        <p>Netflix Clone - Made with ❤️</p>
+    </div>
+    <script src="net.js"></script>
+</body>
+</html>
