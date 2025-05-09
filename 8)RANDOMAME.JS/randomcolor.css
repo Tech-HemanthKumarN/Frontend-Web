@@ -1,0 +1,35 @@
+body{
+    text-align: center;
+    background-color:#caffdf;
+    background-image: url(blog3-5.png);
+    background-size:contain;
+    border: none;
+}
+div{
+    height: 300px;
+    width: 600px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    border-radius: 1rem;
+    transition: ease-in-out 0.5s;
+}
+div:hover{
+    border-radius: 20%;
+    
+}
+button{
+    height: 50px;
+    width: 150px;
+    border-radius: 1rem;
+    border: none;
+}
+button:hover{
+    background-color: bisque;
+    border-radius: 1.2rem;
+}
